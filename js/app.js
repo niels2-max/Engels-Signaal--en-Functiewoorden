@@ -133,7 +133,7 @@ function showNextQuestion() {
     const percentage = Math.round((quizScore / 10) * 100);
     document.getElementById("question").innerHTML = `
       <div class="quiz-results">
-        <h2>Quiz voltooid! 🎉</h2>
+        <h2>Quiz voltooid!</h2>
         <p class="result-text">Je score: <strong>${quizScore}/10</strong> (${percentage}%)</p>
         <div class="score-bar">
           <div class="score-fill" style="width: ${quizScore * 10}%"></div>
@@ -207,9 +207,9 @@ function showFillIn(q) {
 
     <div class="fillin-container">
       <input type="text" id="fillinInput" class="fillin-input" placeholder="Typ het antwoord hier...">
-      <button class="fillin-submit" onclick="checkAnswerFillIn()">✓ Controleer</button>
+      <button class="fillin-submit" onclick="checkAnswerFillIn()">Controleer</button>
     </div>
-    <p style="text-align: center; color: #999; font-size: 0.9em;">💡 Hoofd/kleine letters en leestekens doen niet ter zake</p>
+    <p style="text-align: center; color: #999; font-size: 0.9em;">Hoofd/kleine letters en leestekens doen niet ter zake</p>
   `;
 
   // Focus on input field and set up Enter key
@@ -247,8 +247,8 @@ function checkAnswerMultiple(selected, correct) {
   const feedback = document.createElement("div");
   feedback.className = isCorrect ? "feedback correct" : "feedback incorrect";
   feedback.textContent = isCorrect
-    ? "✓ Goed! Het antwoord is: " + correct
-    : "✗ Fout. Het antwoord is: " + correct;
+    ? "Goed! Het antwoord is: " + correct
+    : "Fout. Het antwoord is: " + correct;
 
   document.querySelector(".answers-container").appendChild(feedback);
 
@@ -275,8 +275,8 @@ function checkAnswerFillIn() {
   const feedback = document.createElement("div");
   feedback.className = isCorrect ? "feedback correct" : "feedback incorrect";
   feedback.textContent = isCorrect
-    ? "✓ Goed! Het antwoord is: " + correctAnswer
-    : "✗ Fout. Het antwoord is: " + correctAnswer;
+    ? "Goed! Het antwoord is: " + correctAnswer
+    : "Fout. Het antwoord is: " + correctAnswer;
 
   input.disabled = true;
   input.classList.add(isCorrect ? "correct" : "incorrect");
@@ -297,9 +297,9 @@ function resetQuiz() {
 }
 
 function getScoreFeedback(percentage) {
-  if (percentage === 100) return "Perfecte score! Je bent een expert! 🏆";
-  if (percentage >= 80) return "Fantastisch! Je beheerst de woorden heel goed! 🌟";
-  if (percentage >= 60) return "Goed gedaan! Nog wat oefenen helpt! 💪";
-  if (percentage >= 40) return "Je bent op de goede weg. Meer oefenen nodig! 📚";
-  return "Nog wat meer oefenen nodig. Je redt het! 💪";
+  if (percentage === 100) return "Perfecte score! Je bent een expert!";
+  if (percentage >= 80) return "Fantastisch! Je beheerst de woorden heel goed!";
+  if (percentage >= 60) return "Goed gedaan! Nog wat oefenen helpt!";
+  if (percentage >= 40) return "Je bent op de goede weg. Meer oefenen nodig!";
+  return "Nog wat meer oefenen nodig. Je redt het!";
 }
