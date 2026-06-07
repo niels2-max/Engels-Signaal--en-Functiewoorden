@@ -10,7 +10,7 @@
 
 <header>
   <h1>📚 Signaalwoorden & Functiewoorden Trainer</h1>
-  <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Leer Engelse signaalwoorden op een interactieve manier!</p>
+  <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Leer voor je HAVO/VWO eindexamen Engels!</p>
 </header>
 
 <nav>
@@ -23,35 +23,37 @@
 
 <section id="home">
   <h2>Welkom! 👋</h2>
-  <p>Kies wat je wilt doen:</p>
+  <p>Deze app helpt je met het leren van signaal- en functiewoorden voor je eindexamen Engels!</p>
   <div style="margin-top: 30px;">
     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
       <h3 style="color: #667eea; margin-top: 0;">📖 Leren</h3>
-      <p>Leer signaalwoorden met flashcards. Je kunt kiezen uit verschillende categorieën:</p>
-      <ul style="color: #666;">
-        <li>Tegenstelling (however, although...)</li>
-        <li>Reden / Oorzaak (because, since...)</li>
-        <li>Gevolg / Conclusie (therefore, as a result...)</li>
-        <li>Tijd / Volgorde (first, then, finally...)</li>
-        <li>Voorwaarde (if, unless...)</li>
-        <li>Voorbeelden (for example, such as...)</li>
-        <li>Toevoeging (moreover, furthermore...)</li>
+      <p>Leer signaalwoorden en functiewoorden met flashcards. Je kunt kiezen uit:</p>
+      <ul style="color: #666; margin: 10px 0;">
+        <li><strong>Signaalwoorden</strong> (95+ woorden): Woorden die tekstverbanden aangeven</li>
+        <li><strong>Functiewoorden</strong> (35+ woorden): Woorden die functies van tekstdelen aangeven</li>
       </ul>
+      <p>Filtreer op categorie en leer systematisch!</p>
     </div>
     
     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
       <h3 style="color: #667eea; margin-top: 0;">✏️ Oefenen</h3>
-      <p>Test jezelf met een 10-vragen quiz. Selecteer het juiste Nederlands woord voor het Engelse signaalwoord!</p>
+      <p>Test jezelf met een 10-vragen quiz. Selecteer het juiste Nederlands woord!</p>
+      <p style="font-size: 0.95em; color: #999;">💡 Tip: Je score wordt in realtime berekend en weergegeven.</p>
     </div>
   </div>
 </section>
 
 <section id="learn" class="hidden">
   <h2>📖 Leren met Flashcards</h2>
-  <p>Kies een categorie en klik op "Start Flashcards" om te beginnen. Klik op de kaart om het antwoord te zien!</p>
+  <p>Kies je woordtype en categorie, dan start de flashcards. Klik op de kaart om het antwoord te zien!</p>
   
-  <label for="categorySelect" style="font-weight: 600; color: #333;">Selecteer een categorie:</label>
-  <br>
+  <label for="wordTypeSelect" style="font-weight: 600; color: #333;">Woordtype:</label>
+  <select id="wordTypeSelect" onchange="document.getElementById('categorySelect').value = 'all'">
+    <option value="signaal">📌 Signaalwoorden</option>
+    <option value="functie">🎯 Functiewoorden</option>
+  </select>
+
+  <label for="categorySelect" style="font-weight: 600; color: #333; margin-left: 15px;">Categorie:</label>
   <select id="categorySelect">
     <option value="all">📚 Alle categorieën</option>
     <option value="Tegenstelling">🔄 Tegenstelling</option>
@@ -60,7 +62,16 @@
     <option value="Tijd / Volgorde">⏱️ Tijd / Volgorde</option>
     <option value="Voorwaarde">⚙️ Voorwaarde</option>
     <option value="Voorbeelden">💡 Voorbeelden</option>
-    <option value="Toevoeging">➕ Toevoeging</option>
+    <option value="Toevoeging / Opsomming">➕ Toevoeging / Opsomming</option>
+    <option value="Vergelijking">🔀 Vergelijking</option>
+    <option value="Duidelijk maken">✔️ Duidelijk maken</option>
+    <option value="Illustreren">🎨 Illustreren</option>
+    <option value="Benadrukken">📢 Benadrukken</option>
+    <option value="Tegenspreken">⚖️ Tegenspreken</option>
+    <option value="Analyseren">🔍 Analyseren</option>
+    <option value="Uitwerken">📝 Uitwerken</option>
+    <option value="Ondersteunen">👍 Ondersteunen</option>
+    <option value="Andere functies">🔧 Andere functies</option>
   </select>
 
   <br>
@@ -71,9 +82,29 @@
 
 <section id="quiz" class="hidden">
   <h2>✏️ Oefenen - Quiz</h2>
-  <p>Beantwoord 10 vragen en test je kennis van signaalwoorden!</p>
+  <p>Beantwoord 10 vragen en test je kennis!</p>
   
-  <button onclick="startQuiz()">▶️ Start Quiz</button>
+  <label for="quizTypeSelect" style="font-weight: 600; color: #333;">Woordtype:</label>
+  <select id="quizTypeSelect" onchange="document.getElementById('quizCategorySelect').value = 'all'">
+    <option value="signaal">📌 Signaalwoorden</option>
+    <option value="functie">🎯 Functiewoorden</option>
+  </select>
+
+  <label for="quizCategorySelect" style="font-weight: 600; color: #333; margin-left: 15px;">Categorie:</label>
+  <select id="quizCategorySelect">
+    <option value="all">📚 Alle categorieën</option>
+    <option value="Tegenstelling">🔄 Tegenstelling</option>
+    <option value="Reden / Oorzaak">❓ Reden / Oorzaak</option>
+    <option value="Gevolg / Conclusie">➡️ Gevolg / Conclusie</option>
+    <option value="Tijd / Volgorde">⏱️ Tijd / Volgorde</option>
+    <option value="Voorwaarde">⚙️ Voorwaarde</option>
+    <option value="Voorbeelden">💡 Voorbeelden</option>
+    <option value="Toevoeging / Opsomming">➕ Toevoeging / Opsomming</option>
+    <option value="Vergelijking">🔀 Vergelijking</option>
+  </select>
+
+  <br>
+  <button onclick="startQuiz()" style="margin-top: 15px;">▶️ Start Quiz</button>
 
   <div id="question"></div>
 </section>
@@ -81,7 +112,7 @@
 </main>
 
 <footer style="text-align: center; color: rgba(255,255,255,0.7); margin-top: 30px; font-size: 0.9em;">
-  <p>💪 Veel succes met het leren van signaalwoorden!</p>
+  <p>✍️ Gebaseerd op HAVO/VWO 4 woordenlijst | 💪 Veel succes met je eindexamen!</p>
 </footer>
 
 <script src="data/signaalwoorden.js"></script>
