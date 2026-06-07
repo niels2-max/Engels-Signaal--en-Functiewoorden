@@ -1,28 +1,375 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+* {
+  box-sizing: border-box;
 }
 
-button {
-  padding: 10px;
-  margin: 5px;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav button {
+  padding: 12px 24px;
+  font-size: 1em;
+  background: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #667eea;
+}
+
+nav button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav button:active {
+  transform: translateY(0);
+}
+
+main {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+section {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .hidden {
   display: none;
 }
 
+section h2 {
+  color: #667eea;
+  font-size: 2em;
+  margin-top: 0;
+}
+
+section p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+/* Select dropdown styling */
+#categorySelect {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+  color: #667eea;
+  font-weight: 500;
+}
+
+#categorySelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Button styling */
+button {
+  padding: 12px 24px;
+  margin: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Flashcard styling */
 #flashcard {
   margin-top: 30px;
-  padding: 30px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
-.answer {
-  display:block;
-  margin:10px 0;
+.flashcard-content {
+  width: 100%;
+  padding: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.flashcard-content:hover {
+  transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.flashcard-content h2 {
+  font-size: 2.5em;
+  margin: 0 0 20px 0;
+  color: white;
+}
+
+.flashcard-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.flashcard-content.flipped {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.flip-hint {
+  font-size: 0.9em !important;
+  opacity: 0.8 !important;
+  margin-top: 20px !important;
+}
+
+.category {
+  font-size: 0.9em !important;
+  opacity: 0.8 !important;
+  font-style: italic !important;
+}
+
+/* Quiz styling */
+#question {
+  margin-top: 30px;
+}
+
+.quiz-header {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border-left: 4px solid #667eea;
+}
+
+.quiz-header h3 {
+  color: #333;
+  font-size: 1.5em;
+  margin: 0 0 15px 0;
+}
+
+.progress {
+  color: #666;
+  font-size: 0.95em;
+  margin: 0;
+}
+
+.score-display {
+  color: #667eea;
+  font-size: 1.1em;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.answer-btn {
+  padding: 15px 20px;
+  text-align: left;
+  background: white;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.05em;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin: 0;
+}
+
+.answer-btn:hover:not(:disabled) {
+  border-color: #667eea;
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.answer-btn.correct {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.answer-btn.incorrect {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.feedback {
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-weight: 600;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.feedback.correct {
+  background: #d4edda;
+  border: 1px solid #28a745;
+  color: #155724;
+}
+
+.feedback.incorrect {
+  background: #f8d7da;
+  border: 1px solid #dc3545;
+  color: #721c24;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quiz Results */
+.quiz-results {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.quiz-results h2 {
+  color: white;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.result-text {
+  font-size: 1.5em;
+  margin: 20px 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.score-bar {
+  width: 100%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);
+  transition: width 1s ease;
+}
+
+.retry-btn {
+  margin-top: 20px;
+  background: white;
+  color: #667eea;
+  font-weight: 600;
+  padding: 12px 30px;
+}
+
+.retry-btn:hover {
+  background: #f8f9fa;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 100%;
+  }
+
+  .flashcard-content {
+    padding: 30px 20px;
+  }
+
+  .flashcard-content h2 {
+    font-size: 1.8em;
+  }
+
+  .quiz-results {
+    padding: 30px 20px;
+  }
 }

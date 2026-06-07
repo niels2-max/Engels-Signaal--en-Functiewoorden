@@ -2,59 +2,89 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Signaalwoorden Trainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 Signaalwoorden & Functiewoorden Trainer</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-  <h1>📚 Signaalwoorden Trainer</h1>
+  <h1>📚 Signaalwoorden & Functiewoorden Trainer</h1>
+  <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Leer Engelse signaalwoorden op een interactieve manier!</p>
 </header>
 
 <nav>
-  <button onclick="showScreen('home')">Home</button>
-  <button onclick="showScreen('learn')">Leren</button>
-  <button onclick="showScreen('quiz')">Oefenen</button>
+  <button onclick="showScreen('home')">🏠 Home</button>
+  <button onclick="showScreen('learn')">📖 Leren</button>
+  <button onclick="showScreen('quiz')">✏️ Oefenen</button>
 </nav>
 
 <main>
 
 <section id="home">
-  <h2>Welkom</h2>
-  <p>Kies een onderdeel.</p>
+  <h2>Welkom! 👋</h2>
+  <p>Kies wat je wilt doen:</p>
+  <div style="margin-top: 30px;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3 style="color: #667eea; margin-top: 0;">📖 Leren</h3>
+      <p>Leer signaalwoorden met flashcards. Je kunt kiezen uit verschillende categorieën:</p>
+      <ul style="color: #666;">
+        <li>Tegenstelling (however, although...)</li>
+        <li>Reden / Oorzaak (because, since...)</li>
+        <li>Gevolg / Conclusie (therefore, as a result...)</li>
+        <li>Tijd / Volgorde (first, then, finally...)</li>
+        <li>Voorwaarde (if, unless...)</li>
+        <li>Voorbeelden (for example, such as...)</li>
+        <li>Toevoeging (moreover, furthermore...)</li>
+      </ul>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+      <h3 style="color: #667eea; margin-top: 0;">✏️ Oefenen</h3>
+      <p>Test jezelf met een 10-vragen quiz. Selecteer het juiste Nederlands woord voor het Engelse signaalwoord!</p>
+    </div>
+  </div>
 </section>
 
 <section id="learn" class="hidden">
-  <h2>Leren</h2>
-
+  <h2>📖 Leren met Flashcards</h2>
+  <p>Kies een categorie en klik op "Start Flashcards" om te beginnen. Klik op de kaart om het antwoord te zien!</p>
+  
+  <label for="categorySelect" style="font-weight: 600; color: #333;">Selecteer een categorie:</label>
+  <br>
   <select id="categorySelect">
-    <option value="all">Alle categorieën</option>
-    <option value="Tegenstelling">Tegenstelling</option>
-    <option value="Reden / Oorzaak">Reden / Oorzaak</option>
-    <option value="Gevolg / Conclusie">Gevolg / Conclusie</option>
-    <option value="Tijd / Volgorde">Tijd / Volgorde</option>
-    <option value="Voorwaarde">Voorwaarde</option>
-    <option value="Voorbeelden">Voorbeelden</option>
+    <option value="all">📚 Alle categorieën</option>
+    <option value="Tegenstelling">🔄 Tegenstelling</option>
+    <option value="Reden / Oorzaak">❓ Reden / Oorzaak</option>
+    <option value="Gevolg / Conclusie">➡️ Gevolg / Conclusie</option>
+    <option value="Tijd / Volgorde">⏱️ Tijd / Volgorde</option>
+    <option value="Voorwaarde">⚙️ Voorwaarde</option>
+    <option value="Voorbeelden">💡 Voorbeelden</option>
+    <option value="Toevoeging">➕ Toevoeging</option>
   </select>
 
-  <button onclick="startFlashcards()">Start Flashcards</button>
+  <br>
+  <button onclick="startFlashcards()" style="margin-top: 15px;">▶️ Start Flashcards</button>
 
   <div id="flashcard"></div>
 </section>
 
 <section id="quiz" class="hidden">
-
-  <h2>Oefenen</h2>
-
-  <button onclick="startQuiz()">Start Quiz</button>
+  <h2>✏️ Oefenen - Quiz</h2>
+  <p>Beantwoord 10 vragen en test je kennis van signaalwoorden!</p>
+  
+  <button onclick="startQuiz()">▶️ Start Quiz</button>
 
   <div id="question"></div>
-
 </section>
 
 </main>
 
-<script src="data/signalwoorden.js"></script>
+<footer style="text-align: center; color: rgba(255,255,255,0.7); margin-top: 30px; font-size: 0.9em;">
+  <p>💪 Veel succes met het leren van signaalwoorden!</p>
+</footer>
+
+<script src="data/signaalwoorden.js"></script>
 <script src="data/functiewoorden.js"></script>
 <script src="js/app.js"></script>
 
