@@ -37,7 +37,11 @@
     
     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
       <h3 style="color: #667eea; margin-top: 0;">✏️ Oefenen</h3>
-      <p>Test jezelf met een 10-vragen quiz. Selecteer het juiste Nederlands woord!</p>
+      <p>Test jezelf met een 10-vragen quiz. Kies je oefenvorm:</p>
+      <ul style="color: #666; margin: 10px 0;">
+        <li><strong>Meerkeuze</strong>: Selecteer het juiste antwoord uit 4 opties</li>
+        <li><strong>Invullen</strong>: Typ het antwoord zelf in (hoofd/kleine letters en leestekens doen niet ter zake)</li>
+      </ul>
       <p style="font-size: 0.95em; color: #999;">💡 Tip: Je score wordt in realtime berekend en weergegeven.</p>
     </div>
   </div>
@@ -82,29 +86,37 @@
 
 <section id="quiz" class="hidden">
   <h2>✏️ Oefenen - Quiz</h2>
-  <p>Beantwoord 10 vragen en test je kennis!</p>
+  <p>Kies je oefenvorm en categorie:</p>
   
-  <label for="quizTypeSelect" style="font-weight: 600; color: #333;">Woordtype:</label>
-  <select id="quizTypeSelect" onchange="document.getElementById('quizCategorySelect').value = 'all'">
-    <option value="signaal">📌 Signaalwoorden</option>
-    <option value="functie">🎯 Functiewoorden</option>
-  </select>
+  <div id="quizModeSelection">
+    <div style="margin-bottom: 20px;">
+      <label for="quizTypeSelect" style="font-weight: 600; color: #333;">Woordtype:</label>
+      <select id="quizTypeSelect" onchange="document.getElementById('quizCategorySelect').value = 'all'">
+        <option value="signaal">📌 Signaalwoorden</option>
+        <option value="functie">🎯 Functiewoorden</option>
+      </select>
 
-  <label for="quizCategorySelect" style="font-weight: 600; color: #333; margin-left: 15px;">Categorie:</label>
-  <select id="quizCategorySelect">
-    <option value="all">📚 Alle categorieën</option>
-    <option value="Tegenstelling">🔄 Tegenstelling</option>
-    <option value="Reden / Oorzaak">❓ Reden / Oorzaak</option>
-    <option value="Gevolg / Conclusie">➡️ Gevolg / Conclusie</option>
-    <option value="Tijd / Volgorde">⏱️ Tijd / Volgorde</option>
-    <option value="Voorwaarde">⚙️ Voorwaarde</option>
-    <option value="Voorbeelden">💡 Voorbeelden</option>
-    <option value="Toevoeging / Opsomming">➕ Toevoeging / Opsomming</option>
-    <option value="Vergelijking">🔀 Vergelijking</option>
-  </select>
+      <label for="quizCategorySelect" style="font-weight: 600; color: #333; margin-left: 15px;">Categorie:</label>
+      <select id="quizCategorySelect">
+        <option value="all">📚 Alle categorieën</option>
+        <option value="Tegenstelling">🔄 Tegenstelling</option>
+        <option value="Reden / Oorzaak">❓ Reden / Oorzaak</option>
+        <option value="Gevolg / Conclusie">➡️ Gevolg / Conclusie</option>
+        <option value="Tijd / Volgorde">⏱️ Tijd / Volgorde</option>
+        <option value="Voorwaarde">⚙️ Voorwaarde</option>
+        <option value="Voorbeelden">💡 Voorbeelden</option>
+        <option value="Toevoeging / Opsomming">➕ Toevoeging / Opsomming</option>
+        <option value="Vergelijking">🔀 Vergelijking</option>
+      </select>
+    </div>
 
-  <br>
-  <button onclick="startQuiz()" style="margin-top: 15px;">▶️ Start Quiz</button>
+    <div>
+      <label style="font-weight: 600; color: #333;">Oefenvorm:</label>
+      <br>
+      <button onclick="startQuiz('meerkeuze')" style="margin-top: 10px; margin-right: 10px;">📋 Meerkeuze</button>
+      <button onclick="startQuiz('invullen')" style="margin-top: 10px;">⌨️ Invullen</button>
+    </div>
+  </div>
 
   <div id="question"></div>
 </section>
