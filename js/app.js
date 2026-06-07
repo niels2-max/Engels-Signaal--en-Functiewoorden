@@ -206,18 +206,22 @@ function showFillIn(q) {
     </div>
 
     <div class="fillin-container">
-      <input type="text" id="fillinInput" class="fillin-input" placeholder="Typ het antwoord hier..." autofocus>
+      <input type="text" id="fillinInput" class="fillin-input" placeholder="Typ het antwoord hier...">
       <button class="fillin-submit" onclick="checkAnswerFillIn()">✓ Controleer</button>
     </div>
     <p style="text-align: center; color: #999; font-size: 0.9em;">💡 Hoofd/kleine letters en leestekens doen niet ter zake</p>
   `;
 
-  // Allow Enter key to submit
-  document.getElementById("fillinInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      checkAnswerFillIn();
-    }
-  });
+  // Focus on input field and set up Enter key
+  setTimeout(() => {
+    const inputField = document.getElementById("fillinInput");
+    inputField.focus();
+    inputField.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        checkAnswerFillIn();
+      }
+    });
+  }, 0);
 }
 
 function checkAnswerMultiple(selected, correct) {
