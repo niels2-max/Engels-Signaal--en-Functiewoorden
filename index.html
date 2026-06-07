@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Signaalwoorden Trainer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+<header>
+  <h1>📚 Signaalwoorden Trainer</h1>
+</header>
+
+<nav>
+  <button onclick="showScreen('home')">Home</button>
+  <button onclick="showScreen('learn')">Leren</button>
+  <button onclick="showScreen('quiz')">Oefenen</button>
+</nav>
+
+<main>
+
+<section id="home">
+  <h2>Welkom</h2>
+  <p>Kies een onderdeel.</p>
+</section>
+
+<section id="learn" class="hidden">
+  <h2>Leren</h2>
+
+  <select id="categorySelect">
+    <option value="all">Alle categorieën</option>
+    <option value="Tegenstelling">Tegenstelling</option>
+    <option value="Reden / Oorzaak">Reden / Oorzaak</option>
+    <option value="Gevolg / Conclusie">Gevolg / Conclusie</option>
+    <option value="Tijd / Volgorde">Tijd / Volgorde</option>
+    <option value="Voorwaarde">Voorwaarde</option>
+    <option value="Voorbeelden">Voorbeelden</option>
+  </select>
+
+  <button onclick="startFlashcards()">Start Flashcards</button>
+
+  <div id="flashcard"></div>
+</section>
+
+<section id="quiz" class="hidden">
+
+  <h2>Oefenen</h2>
+
+  <button onclick="startQuiz()">Start Quiz</button>
+
+  <div id="question"></div>
+
+</section>
+
+</main>
+
+<script src="data/signalwoorden.js"></script>
+<script src="data/functiewoorden.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
