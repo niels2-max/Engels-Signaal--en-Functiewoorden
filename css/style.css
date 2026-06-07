@@ -1,1 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
 
+button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#flashcard {
+  margin-top: 30px;
+  padding: 30px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.answer {
+  display:block;
+  margin:10px 0;
+}
